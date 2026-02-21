@@ -35,6 +35,9 @@ let userLat = null, userLng = null;
 let pendingWAMessage = '';
 let qrisPaid = false; // true setelah user konfirmasi telah membayar via QRIS
 let qrisShown = false; // true setelah user melihat/membuka modal QRIS
+let map = null;
+let userMarker = null;
+let storeMarker = null;
 
 // =============================================
 // DOM READY
@@ -289,12 +292,15 @@ function toggleDelivery(radio) {
     if (radio.value === 'antar') {
         addrGroup.style.display = 'block';
         ongkirBox.style.display = 'block';
+        // Inisialisasi peta setelah penundaan kecil untuk memastikan DOM siap
+        setTimeout(() => initializeMap(), 100);
     } else {
         addrGroup.style.display = 'none';
         ongkirBox.style.display = 'none';
         userLat = null; userLng = null;
         document.getElementById('locationStatus').textContent = '';
         document.getElementById('mapsLink').value = '';
+        destroyMap();
     }
     updateGrandTotal(getSubtotal());
 }
@@ -340,6 +346,112 @@ function getDistance(lat1, lng1, lat2, lng2) {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 function rad(d) { return d * Math.PI / 180; }
+
+// =============================================
+// LEAFLET MAP INITIALIZATION
+// =============================================
+function initializeMap() {
+    const mapContainer = document.getElementById('mapContainer');
+    const mapElement = document.getElementById('map');
+    
+    if (!mapContainer || !mapElement) return;
+    
+    // Jika peta sudah ada, tampilkan saja
+    if (map) {
+        mapContainer.style.display = 'block';
+        map.invalidateSize();
+        return;
+    }
+    
+    mapContainer.style.display = 'block';
+    
+    // Inisialisasi peta di pusat lokasi toko
+    map = L.map('map').setView([TOKO_LAT, TOKO_LNG], 15);
+    
+    // Tambahkan tile layer dari OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+    
+    // Marker untuk lokasi toko
+    storeMarker = L.marker([TOKO_LAT, TOKO_LNG], {
+        icon: L.icon({
+            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48dGV4dCB4PSI2IiB5PSIxNiIgZm9udC1zaXplPSIyMCIgZmlsbD0ibm9uZSI+🏪PC90ZXh0Pjwvc3ZnPg==',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        })
+    }).addTo(map).bindPopup('📍 Lokasi Toko HA BIBI SNACK CORNER');
+    
+    // Marker untuk lokasi pengguna jika sudah ada
+    if (userLat && userLng) {
+        updateUserMarker(userLat, userLng);
+    }
+    
+    // Event listener untuk klik pada peta
+    map.on('click', (e) => {
+        selectLocationFromMap(e.latlng.lat, e.latlng.lng);
+    });
+}
+
+function destroyMap() {
+    if (map) {
+        map.remove();
+        map = null;
+        userMarker = null;
+        storeMarker = null;
+    }
+    const mapContainer = document.getElementById('mapContainer');
+    if (mapContainer) {
+        mapContainer.style.display = 'none';
+    }
+}
+
+function updateUserMarker(lat, lng) {
+    if (!map) return;
+    
+    if (userMarker) {
+        userMarker.setLatLng([lat, lng]);
+    } else {
+        userMarker = L.marker([lat, lng], {
+            icon: L.icon({
+                iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48dGV4dCB4PSI2IiB5PSIxNiIgZm9udC1zaXplPSIyMCIgZmlsbD0ibm9uZSI+📍PC90ZXh0Pjwvc3ZnPg==',
+                iconSize: [32, 32],
+                iconAnchor: [16, 32],
+                popupAnchor: [0, -32]
+            })
+        }).addTo(map).bindPopup('📍 Lokasi Anda');
+    }
+    
+    // Zoom ke area sekitar lokasi toko dan pengguna
+    const bounds = L.latLngBounds([[TOKO_LAT, TOKO_LNG], [lat, lng]]);
+    map.fitBounds(bounds, { padding: [50, 50] });
+}
+
+function selectLocationFromMap(lat, lng) {
+    const dist = getDistance(lat, lng, TOKO_LAT, TOKO_LNG);
+    const status = document.getElementById('locationStatus');
+    
+    if (dist > MAX_KM) {
+        status.textContent = `❌ Lokasi ${dist.toFixed(1)} km dari toko. Pengiriman hanya dalam ${MAX_KM} km.`;
+        status.className = 'location-status error';
+        userLat = null;
+        userLng = null;
+        if (userMarker) {
+            map.removeLayer(userMarker);
+            userMarker = null;
+        }
+    } else {
+        userLat = lat;
+        userLng = lng;
+        status.textContent = `✅ Lokasi dipilih! Jarak ±${dist.toFixed(2)} km dari toko.`;
+        status.className = 'location-status success';
+        document.getElementById('mapsLink').value = `https://maps.google.com/?q=${lat},${lng}`;
+        updateUserMarker(lat, lng);
+    }
+    updateGrandTotal(getSubtotal());
+}
 
 // =============================================
 // PANEL TOGGLE

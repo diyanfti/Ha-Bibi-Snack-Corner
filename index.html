@@ -6,6 +6,8 @@
     <title>HA BIBI SNACK CORNER</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="profile.css">
+    <!-- Leaflet Maps CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 
@@ -216,8 +218,15 @@
                 <label>📍 Lokasi Kamu (Google Maps)</label>
                 <button class="btn-maps" onclick="getLocation()">📌 Dapatkan Lokasi Saya</button>
                 <div id="locationStatus" class="location-status"></div>
+                
+                <!-- Peta Interaktif -->
+                <div id="mapContainer" style="display:none; margin-top:12px">
+                    <label style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 8px; display: block;">Pilih Lokasi Anda di Peta (atau klik untuk memilih):</label>
+                    <div id="map" style="height: 300px; border-radius: 8px; border: 1px solid var(--border);"></div>
+                </div>
+                
                 <input type="text" id="mapsLink" placeholder="Atau paste link Google Maps kamu" style="margin-top:8px">
-                <small class="location-note">⚠️ Pengiriman hanya dalam radius 1 km dari toko</small>
+                <small class="location-note">⚠️ Pengiriman hanya dalam radius 2 km dari toko</small>
             </div>
 
             <div id="ongkirBox" style="display:none" class="ongkir-info">
@@ -279,6 +288,8 @@
     <!-- ===== OVERLAY ===== -->
     <div class="overlay" id="overlay" onclick="closeAllPanel()"></div>
 
+    <!-- Leaflet Maps JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

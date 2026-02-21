@@ -1571,3 +1571,41 @@ header::before {
         padding: 6px 8px;
     }
 }
+
+/* ===== LEAFLET MAPS STYLING ===== */
+#mapContainer {
+    margin-top: 12px;
+}
+
+#map {
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Customize leaflet popup */
+.leaflet-popup-content {
+    color: var(--text-main) !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px var(--shadow) !important;
+}
+
+.leaflet-popup-tip {
+    background: var(--bg-card) !important;
+}
+
+/* Customize leaflet control */
+.leaflet-control {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px var(--shadow) !important;
+}
+
+.leaflet-control-attribution {
+    background: transparent !important;
+}
