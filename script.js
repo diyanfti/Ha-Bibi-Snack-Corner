@@ -23,8 +23,8 @@ const stockData = {
 // KONFIGURASI TOKO — sesuaikan di sini
 // =============================================
 const NOMOR_WA = "6283852930872";
-const ONGKIR   = 500;
-const MAX_KM   = 2;
+const ONGKIR   = 1000;
+const MAX_KM   = 1;
 const TOKO_LAT = -7.762126;
 const TOKO_LNG = 113.770656;
 
@@ -348,6 +348,23 @@ function getDistance(lat1, lng1, lat2, lng2) {
 function rad(d) { return d * Math.PI / 180; }
 
 // =============================================
+// CUSTOM LEAFLET ICONS
+// =============================================
+const STORE_ICON = L.icon({
+    iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48" width="40" height="48"><defs><linearGradient id="storeGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23FF6B35;stop-opacity:1" /><stop offset="100%" style="stop-color:%23D62828;stop-opacity:1" /></linearGradient></defs><path d="M20 0C8.95 0 0 8.95 0 20c0 12 20 28 20 28s20-16 20-28c0-11.05-8.95-20-20-20z" fill="url(%23storeGradient)" stroke="%23FFFFFF" stroke-width="2"/><circle cx="20" cy="18" r="7" fill="%23FFFFFF" opacity="0.9"/><rect x="16" y="22" width="8" height="6" fill="%23FFFFFF" opacity="0.8" rx="1"/></svg>',
+    iconSize: [40, 48],
+    iconAnchor: [20, 48],
+    popupAnchor: [0, -48]
+});
+
+const USER_ICON = L.icon({
+    iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48" width="40" height="48"><defs><linearGradient id="userGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%234A90E2;stop-opacity:1" /><stop offset="100%" style="stop-color:%232E5C8A;stop-opacity:1" /></linearGradient></defs><path d="M20 0C8.95 0 0 8.95 0 20c0 12 20 28 20 28s20-16 20-28c0-11.05-8.95-20-20-20z" fill="url(%23userGradient)" stroke="%23FFFFFF" stroke-width="2"/><circle cx="20" cy="16" r="5" fill="%23FFFFFF" opacity="0.95"/><path d="M20 22 C 17 22 14 24 14 27 L 26 27 C 26 24 23 22 20 22 Z" fill="%23FFFFFF" opacity="0.9"/><circle cx="20" cy="12" r="2.5" fill="%234A90E2" opacity="0.6"/></svg>',
+    iconSize: [40, 48],
+    iconAnchor: [20, 48],
+    popupAnchor: [0, -48]
+});
+
+// =============================================
 // LEAFLET MAP INITIALIZATION
 // =============================================
 function initializeMap() {
@@ -376,13 +393,8 @@ function initializeMap() {
     
     // Marker untuk lokasi toko
     storeMarker = L.marker([TOKO_LAT, TOKO_LNG], {
-        icon: L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48dGV4dCB4PSI2IiB5PSIxNiIgZm9udC1zaXplPSIyMCIgZmlsbD0ibm9uZSI+🏪PC90ZXh0Pjwvc3ZnPg==',
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32]
-        })
-    }).addTo(map).bindPopup('📍 Lokasi Toko HA BIBI SNACK CORNER');
+        icon: STORE_ICON
+    }).addTo(map).bindPopup('🏪 Lokasi Toko HA BIBI SNACK CORNER');
     
     // Marker untuk lokasi pengguna jika sudah ada
     if (userLat && userLng) {
@@ -415,12 +427,7 @@ function updateUserMarker(lat, lng) {
         userMarker.setLatLng([lat, lng]);
     } else {
         userMarker = L.marker([lat, lng], {
-            icon: L.icon({
-                iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48dGV4dCB4PSI2IiB5PSIxNiIgZm9udC1zaXplPSIyMCIgZmlsbD0ibm9uZSI+📍PC90ZXh0Pjwvc3ZnPg==',
-                iconSize: [32, 32],
-                iconAnchor: [16, 32],
-                popupAnchor: [0, -32]
-            })
+            icon: USER_ICON
         }).addTo(map).bindPopup('📍 Lokasi Anda');
     }
     
