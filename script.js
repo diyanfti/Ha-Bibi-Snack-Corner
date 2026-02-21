@@ -589,7 +589,7 @@ function sendToWhatsApp() {
     const grand   = subtotal + (isAntar ? ONGKIR : 0);
 
     let pesan =
-`🛍️ *PESANAN HA BIBI STORE*
+`🛍️ *PESANAN HA BIBI SNACK CORNER*
 
 👤 Nama      : ${nama}
 🚚 Pengiriman: ${isAntar ? 'Antar ke Rumah' : 'Ambil Sendiri'}
