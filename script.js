@@ -22,7 +22,7 @@ const stockData = {
 // =============================================
 // KONFIGURASI TOKO — sesuaikan di sini
 // =============================================
-const NOMOR_WA = "6283857710344";
+const NOMOR_WA = "6283852930872";
 const ONGKIR   = 500;
 const MAX_KM   = 1;
 const TOKO_LAT = -8.1725;
