@@ -25,8 +25,8 @@ const stockData = {
 const NOMOR_WA = "6283852930872";
 const ONGKIR   = 500;
 const MAX_KM   = 2;
-const TOKO_LAT = -7.7333;
-const TOKO_LNG = 114.1167;
+const TOKO_LAT = -7.762126;
+const TOKO_LNG = 113.770656;
 
 // =============================================
 
@@ -368,10 +368,10 @@ function initializeMap() {
     // Inisialisasi peta di pusat lokasi toko
     map = L.map('map').setView([TOKO_LAT, TOKO_LNG], 15);
     
-    // Tambahkan tile layer dari OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-        maxZoom: 19
+    // Tambahkan tile layer satelit dari Esri
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '© Esri, DigitalGlobe, Earthstar Geographics',
+        maxZoom: 18
     }).addTo(map);
     
     // Marker untuk lokasi toko
