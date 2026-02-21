@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - HA BIBI SNACK CORNER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="image/Logo Habibi.png" alt="Logo HA BIBI SNACK CORNER" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🛍️ Menu</a>
+                <a href="profile.html" class="nav-link active">👤 Profil</a>
+            </div>
+            <!-- Di profile.html, ganti baris btn-theme menjadi: -->
+            <div class="header-actions">
+                <button class="btn-theme" onclick="toggleTheme()" title="Ganti Tema">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <img src="image/Logo Habibi.png" alt="Logo HA BIBI SNACK CORNER" class="hero-logo">
+            <h1 class="hero-title">HA BIBI SNACK CORNER</h1>
+            <p class="hero-sub">Toko Sembako & Angkringan · Di Jamin Nagihh best 🔥</p>
+            <a href="index.html?pesan=1" class="btn-wa-hero">🛒 Pesan Sekarang</a>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path class="wave-path" d="M0,50 C400,90 1040,10 1440,50 L1440,80 L0,80 Z"/>
+            </svg>
+        </div>
+    </section>
+
+    <div class="profile-container">
+
+        <!-- ===== TENTANG KAMI ===== -->
+        <section class="section">
+            <div class="section-label">✨ Tentang Kami</div>
+            <div class="about-card">
+                <div class="about-icon">🏪</div>
+                <div class="about-text">
+                    <h2>Selamat Datang di HA BIBI SNACK CORNER!</h2>
+                    <p>HA BIBI SNACK CORNER adalah toko sembako dan angkringan yang dikelola oleh <strong>Ibu Siti</strong>, hadir untuk memenuhi kebutuhan sehari-hari masyarakat sekitar dengan harga yang terjangkau dan produk yang berkualitas.</p>
+                    <p>Kami menyediakan berbagai jajanan angkringan seperti cireng, jihu, pentol, bakso, tahu walek, dan masih banyak lagi — semuanya dibuat dengan cita rasa yang nagih dan bikin ketagihan! 😋</p>
+                    <p>Dengan semangat melayani 24 jam, kami siap memenuhi pesananmu kapan saja. <em>Di Jamin Nagihh best!</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== INFO CARDS ===== -->
+        <section class="section">
+            <div class="section-label">📋 Informasi Toko</div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">👩‍💼</div>
+                    <div class="info-body">
+                        <div class="info-title">Pemilik</div>
+                        <div class="info-value">Ibu Siti</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-body">
+                        <div class="info-title">Jam Operasional</div>
+                        <div class="info-value">Buka 24 Jam</div>
+                        <div class="info-badge open">● Buka Sekarang</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-body">
+                        <div class="info-title">Alamat</div>
+                        <div class="info-value">Sumber Pinang, Kec. Mlandingan</div>
+                        <div class="info-sub">Kab. Situbondo, Jawa Timur</div>
+                    </div>
+                </div>
+                <div class="info-card clickable" onclick="window.location.href='index.html?pesan=1'">
+                    <div class="info-icon">📱</div>
+                    <div class="info-body">
+                        <div class="info-title">WhatsApp</div>
+                        <div class="info-value">083857710344</div>
+                        <div class="info-badge wa">🛒 Pesan Dulu</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LOKASI ===== -->
+        <section class="section">
+            <div class="section-label">🗺️ Lokasi Toko</div>
+            <div class="map-card">
+                <div class="map-info">
+                    <span class="map-pin">📍</span>
+                    <div>
+                        <strong>HA BIBI SNACK CORNER</strong><br>
+                        <span>Sumber Pinang, Kec. Mlandingan, Kab. Situbondo, Jawa Timur, Indonesia</span>
+                    </div>
+                </div>
+                <div class="map-embed">
+                    <iframe src="https://maps.google.com/maps?q=Sumber+Pinang+Mlandingan+Situbondo+Jawa+Timur&output=embed&z=15"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://maps.google.com/?q=Sumber+Pinang+Mlandingan+Situbondo" target="_blank" class="btn-maps-full">
+                    🗺️ Buka di Google Maps
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== GALERI PRODUK ===== -->
+        <section class="section">
+            <div class="section-label">📸 Galeri Produk</div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openProduct(0)">
+                    <img src="image/Cireng.png" alt="Cireng">
+                    <div class="gallery-caption">
+                        <div class="gallery-name">Cireng</div>
+                        <div class="gallery-desc">Rp 1.000 / 1 pcs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openProduct(1)">
+                    <img src="image/Jihu.png" alt="Jihu">
+                    <div class="gallery-caption">
+                        <div class="gallery-name">Jihu</div>
+                        <div class="gallery-desc">Rp 1.000 / 1 pcs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openProduct(2)">
+                    <img src="image/Pentol Kecil.png" alt="Pentol Bakso Kecil">
+                    <div class="gallery-caption">
+                        <div class="gallery-name">Pentol Bakso Kecil</div>
+                        <div class="gallery-desc">Rp 1.000 / 5 biji</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openProduct(3)">
+                    <img src="image/Bakso.png" alt="Bakso">
+                    <div class="gallery-caption">
+                        <div class="gallery-name">Bakso</div>
+                        <div class="gallery-desc">Rp 5.000 / 1 porsi</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openProduct(4)">
+                    <img src="image/Pentol Tahu Daging.png" alt="Pentol Tahu Daging">
+                    <div class="gallery-caption">
+                        <div class="gallery-name">Pentol Tahu Daging</div>
+                        <div class="gallery-desc">Rp 1.000 / 1 pcs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openProduct(5)">
+                    <img src="image/Tahu walek.png" alt="Tahu Walek">
+                    <div class="gallery-caption">
+                        <div class="gallery-name">Tahu Walek</div>
+                        <div class="gallery-desc">Rp 2.000 / 3 biji</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MODAL PRODUK ===== -->
+        <div class="prod-modal" id="prodModal">
+            <div class="prod-modal-content">
+
+                <!-- Tombol tutup -->
+                <button class="prod-modal-close" id="btnClose" aria-label="Tutup">&#10005;</button>
+
+                <!-- Area foto + slideshow per produk -->
+                <div class="prod-img-area" id="prodImgArea">
+                    <div class="prod-photo-track" id="prodPhotoTrack"></div>
+                    <div class="prod-photo-dots" id="prodPhotoDots"></div>
+                    <div class="prod-photo-bar" id="prodPhotoBar"></div>
+                    <span class="prod-autoplay-badge" id="prodAutoBadge">▶ Auto</span>
+                </div>
+
+                <!-- Thumbnail foto -->
+                <div class="prod-thumb-strip" id="prodThumbStrip"></div>
+
+                <!-- Navigasi produk: tombol + dots + counter — satu baris rapi -->
+                <div class="prod-nav-row">
+                    <button class="prod-nav-btn" id="btnProdPrev" aria-label="Produk sebelumnya">
+                        &#8592;
+                    </button>
+
+                    <div class="prod-nav-center">
+                        <div class="prod-dots-row" id="prodDotsRow"></div>
+                        <div class="prod-counter" id="prodCounter"></div>
+                    </div>
+
+                    <button class="prod-nav-btn" id="btnProdNext" aria-label="Produk berikutnya">
+                        &#8594;
+                    </button>
+                </div>
+
+                <!-- Info produk -->
+                <div class="prod-modal-body">
+                    <div class="prod-modal-header">
+                        <h3 id="modalName"></h3>
+                        <span class="pd-price" id="modalPrice"></span>
+                    </div>
+                    <p class="pd-desc" id="modalDesc"></p>
+                    <p class="pd-origin" id="modalOrigin"></p>
+                    <div class="pd-recommend" id="modalRecommend"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== CTA ===== -->
+        <section class="section cta-section">
+            <div class="cta-card">
+                <div class="cta-emoji">🛍️</div>
+                <h2>Yuk, Pesan Sekarang!</h2>
+                <p>Lapar? Butuh jajanan nagih? Kami siap melayani 24 jam!</p>
+                <div class="cta-btns">
+                    <a href="index.html?pesan=1" class="btn-cta-main">🛒 Pesan Sekarang</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="image/Logo Habibi.png" alt="Logo" class="footer-logo-img">
+            <span>HA BIBI SNACK CORNER</span>
+        </div>
+        <p class="footer-addr">📍 Sumber Pinang, Mlandingan, Situbondo, Jawa Timur</p>
+        <p class="footer-copy">© 2026 HA BIBI SNACK CORNER · Ibu Siti · All rights reserved</p>
+    </footer>
+
+    <script>
+    // ============================================================
+    // TEMA
+    // ============================================================
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+        const ic = document.getElementById('themeIcon');
+        if (ic) ic.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    });
+    function toggleTheme() {
+        const html = document.documentElement;
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+    }
+
+    // ============================================================
+    // DATA PRODUK
+    // Tambah path foto ke array `images` untuk slideshow per produk.
+    // ============================================================
+    const PRODUCTS = [
+        {
+            name: 'Cireng', price: 'Rp 1.000 / 1 pcs',
+            images: ['image/Cireng.png'],
+            desc: 'Jajanan renyah khas Jawa Barat yang terbuat dari tepung aci (tapioka) yang digoreng hingga garing di luar namun kenyal di dalam.',
+            origin: '📖 <strong>Asal Usul:</strong> Cireng atau "Aci digoreng" berasal dari tradisi kuliner Sunda. Dibuat dari adonan tepung tapioka yang dicampur bumbu, dibentuk tipis, lalu digoreng dengan minyak panas hingga mengembang dan renyah.',
+            recommend: '✨ Cocok banget buat teman nongkrong! Renyahnya bikin nagih, sekali makan pasti nambah terus. Yuk cobain — cuma Rp 1.000 aja!'
+        },
+        {
+            name: 'Jihu', price: 'Rp 1.000 / 1 pcs',
+            images: ['image/Jihu.png'],
+            desc: 'Jajanan unik dengan tekstur kenyal di dalam dan sedikit garing di luar, cocok disantap dengan saus pedas manis yang menggugah selera.',
+            origin: '📖 <strong>Cara Pembuatan:</strong> Jihu dibuat dari campuran tepung terigu dan tepung tapioka yang dibumbui, lalu dibentuk dan digoreng. Perpaduan dua tepung inilah yang menghasilkan tekstur khas yang tidak bisa kamu temukan di jajanan lain.',
+            recommend: '✨ Mau camilan yang beda dari biasanya? Jihu jawabannya! Murah meriah, nagih, dan bikin hari-harimu makin seru. Jangan sampai kehabisan!'
+        },
+        {
+            name: 'Pentol Bakso Kecil', price: 'Rp 1.000 / 5 biji',
+            images: ['image/Pentol Kecil.png'],
+            desc: 'Bola-bola kecil kenyal berbahan dasar daging sapi dan tepung tapioka yang gurih, disajikan dengan kuah atau saus pilihan.',
+            origin: '📖 <strong>Asal Usul:</strong> Pentol merupakan variasi bakso khas Jawa Timur. Dibuat dengan menggiling daging sapi halus, dicampur tepung tapioka dan bumbu rempah, lalu dibentuk bulat kecil dan direbus hingga matang sempurna.',
+            recommend: '✨ 5 biji cuma Rp 1.000? Ini yang paling worth it! Gurih, kenyal, dan bikin perut happy. Pas banget buat teman ngobrol santai sore hari!'
+        },
+        {
+            name: 'Bakso', price: 'Rp 5.000 / 1 porsi',
+            images: ['image/Bakso.png'],
+            desc: 'Sajian bakso lengkap dalam satu porsi dengan kuah kaldu sapi yang gurih, lembut, dan menghangatkan — comfort food sejuta umat!',
+            origin: '📖 <strong>Asal Usul:</strong> Bakso terinspirasi dari masakan Tionghoa yang kemudian berkembang menjadi kuliner khas Indonesia. Dibuat dari daging sapi segar yang digiling halus, dicampur tepung tapioka dan bumbu pilihan, dibentuk bulat lalu dimasak dalam kaldu sapi yang kaya rasa.',
+            recommend: '✨ Hujan-hujanan atau lagi butuh penyemangat? Semangkuk bakso hangat dari HA BIBI SNACK CORNER adalah jawaban yang tepat! Kaldu gurihnya bikin kamu ketagihan terus!'
+        },
+        {
+            name: 'Pentol Tahu Daging', price: 'Rp 1.000 / 1 pcs',
+            images: ['image/Pentol Tahu Daging.png'],
+            desc: 'Perpaduan sempurna antara tahu lembut yang diisi adonan daging berbumbu di dalamnya — dua kelezatan dalam satu gigitan!',
+            origin: '📖 <strong>Cara Pembuatan:</strong> Tahu dipotong dan dibelah, lalu diisi dengan adonan daging sapi yang sudah dibumbui dengan bawang putih, merica, dan rempah pilihan. Kemudian dikukus atau digoreng hingga matang merata dan beraroma menggoda.',
+            recommend: '✨ Suka tahu? Suka daging? Kenapa tidak keduanya sekaligus! Pentol tahu daging kami hadir untuk memanjakan lidahmu dengan cita rasa yang tidak akan kamu lupakan!'
+        },
+        {
+            name: 'Tahu Walek', price: 'Rp 2.000 / 3 biji',
+            images: ['image/Tahu walek.png'],
+            desc: 'Tahu goreng khas dengan bagian luar yang renyah dan bagian dalam yang lembut berongga, siap diisi saus atau dimakan langsung.',
+            origin: '📖 <strong>Asal Usul:</strong> Tahu walek atau tahu balon adalah kreasi kuliner unik dari Jawa Timur. Tahu putih digoreng dalam minyak panas dengan teknik khusus sehingga kulit luarnya mengembang, menciptakan rongga di dalam yang renyah dan unik.',
+            recommend: '✨ Penasaran dengan tahu yang bisa mengembang seperti balon? Coba Tahu Walek kami! Kriuk di luar, lembut di dalam — 3 biji cuma Rp 2.000, murah tapi premium rasanya!'
+        }
+    ];
+    const TOTAL = PRODUCTS.length;
+
+    // ============================================================
+    // STATE
+    // ============================================================
+    let curProd  = 0;   // indeks produk aktif (0 – TOTAL-1)
+    let curPhoto = 0;   // indeks foto aktif dalam produk
+    let photoTimer = null;
+    const PHOTO_MS = 3000;
+
+    // Elemen
+    const modal       = document.getElementById('prodModal');
+    const photoTrack  = document.getElementById('prodPhotoTrack');
+    const photoDots   = document.getElementById('prodPhotoDots');
+    const photoBar    = document.getElementById('prodPhotoBar');
+    const autoBadge   = document.getElementById('prodAutoBadge');
+    const thumbStrip  = document.getElementById('prodThumbStrip');
+    const dotsRow     = document.getElementById('prodDotsRow');
+    const counter     = document.getElementById('prodCounter');
+    const imgArea     = document.getElementById('prodImgArea');
+    const btnPrev     = document.getElementById('btnProdPrev');
+    const btnNext     = document.getElementById('btnProdNext');
+
+    // ============================================================
+    // BUKA MODAL
+    // ============================================================
+    function openProduct(idx) {
+        curProd = idx;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        buildProdDots();
+        loadProduct(curProd);
+    }
+
+    // ============================================================
+    // LOAD PRODUK — infinite loop (tidak ada batas)
+    // ============================================================
+    function loadProduct(idx) {
+        // Wrap-around infinite
+        curProd = ((idx % TOTAL) + TOTAL) % TOTAL;
+        const p = PRODUCTS[curProd];
+
+        // Teks
+        document.getElementById('modalName').textContent      = p.name;
+        document.getElementById('modalPrice').textContent     = p.price;
+        document.getElementById('modalDesc').textContent      = p.desc;
+        document.getElementById('modalOrigin').innerHTML      = p.origin;
+        document.getElementById('modalRecommend').textContent = p.recommend;
+
+        // Counter: "2 / 6"
+        counter.textContent = (curProd + 1) + ' / ' + TOTAL;
+
+        updateProdDots();
+        buildPhotoSlider(p.images);
+    }
+
+    // Tombol prev / next produk — tidak pernah disabled
+    btnPrev.addEventListener('click', () => loadProduct(curProd - 1));
+    btnNext.addEventListener('click', () => loadProduct(curProd + 1));
+
+    // ============================================================
+    // DOTS PRODUK
+    // ============================================================
+    function buildProdDots() {
+        dotsRow.innerHTML = '';
+        PRODUCTS.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'prod-dot' + (i === curProd ? ' active' : '');
+            d.setAttribute('aria-label', PRODUCTS[i].name);
+            d.addEventListener('click', () => loadProduct(i));
+            dotsRow.appendChild(d);
+        });
+    }
+    function updateProdDots() {
+        Array.from(dotsRow.children).forEach((d, i) => d.classList.toggle('active', i === curProd));
+    }
+
+    // ============================================================
+    // FOTO SLIDESHOW
+    // ============================================================
+    function buildPhotoSlider(images) {
+        curPhoto = 0;
+        stopPhotoAuto();
+
+        // Slides
+        photoTrack.innerHTML = '';
+        images.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.src = src; img.alt = 'Foto ' + (i+1);
+            img.className = 'prod-photo-slide';
+            img.draggable = false;
+            photoTrack.appendChild(img);
+        });
+
+        // Dots foto
+        photoDots.innerHTML = '';
+        images.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'prod-photo-dot' + (i === 0 ? ' active' : '');
+            d.setAttribute('aria-label', 'Foto ' + (i+1));
+            d.addEventListener('click', () => goPhoto(i, true));
+            photoDots.appendChild(d);
+        });
+
+        // Thumbnails
+        thumbStrip.innerHTML = '';
+        images.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.src = src; img.alt = 'Thumb ' + (i+1);
+            img.className = 'prod-thumb' + (i === 0 ? ' active' : '');
+            img.addEventListener('click', () => goPhoto(i, true));
+            thumbStrip.appendChild(img);
+        });
+
+        const solo = images.length <= 1;
+        photoDots.style.display  = solo ? 'none' : '';
+        thumbStrip.style.display = solo ? 'none' : '';
+        autoBadge.style.display  = solo ? 'none' : '';
+        photoBar.style.display   = solo ? 'none' : '';
+
+        updatePhotoUI();
+        startPhotoAuto();
+    }
+
+    function goPhoto(idx, reset = false) {
+        const total = photoTrack.children.length;
+        curPhoto = ((idx % total) + total) % total;
+        photoTrack.style.transform = `translateX(-${curPhoto * 100}%)`;
+        updatePhotoUI();
+        if (reset) { stopPhotoAuto(); startPhotoAuto(); }
+    }
+
+    function updatePhotoUI() {
+        Array.from(photoDots.children).forEach((d,i) => d.classList.toggle('active', i === curPhoto));
+        Array.from(thumbStrip.children).forEach((t,i) => t.classList.toggle('active', i === curPhoto));
+        const th = thumbStrip.children[curPhoto];
+        if (th) th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    function startPhotoAuto() {
+        stopPhotoAuto();
+        if (photoTrack.children.length <= 1) return;
+        photoBar.style.transition = 'none';
+        photoBar.style.width = '0%';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            photoBar.style.transition = `width ${PHOTO_MS}ms linear`;
+            photoBar.style.width = '100%';
+        }));
+        autoBadge.textContent = '▶ Auto';
+        photoTimer = setTimeout(() => { goPhoto(curPhoto + 1); startPhotoAuto(); }, PHOTO_MS);
+    }
+
+    function stopPhotoAuto() {
+        clearTimeout(photoTimer); photoTimer = null;
+        photoBar.style.transition = 'none';
+        photoBar.style.width = '0%';
+    }
+
+    imgArea.addEventListener('mouseenter', () => { stopPhotoAuto(); autoBadge.textContent = '⏸ Pause'; });
+    imgArea.addEventListener('mouseleave', () => startPhotoAuto());
+
+    // ============================================================
+    // SWIPE FOTO → jika di ujung, lanjut ke produk berikutnya
+    // ============================================================
+    let fSX = 0, fDrag = false, fMoved = false;
+
+    function handleSwipeEnd(diff) {
+        if (!fMoved || Math.abs(diff) < 40) { startPhotoAuto(); return; }
+        const totalPhotos = photoTrack.children.length;
+        if (diff < 0) {
+            // Geser kiri: foto berikutnya, atau produk berikutnya (infinite)
+            if (curPhoto < totalPhotos - 1) goPhoto(curPhoto + 1, true);
+            else loadProduct(curProd + 1);
+        } else {
+            // Geser kanan: foto sebelumnya, atau produk sebelumnya (infinite)
+            if (curPhoto > 0) goPhoto(curPhoto - 1, true);
+            else loadProduct(curProd - 1);
+        }
+    }
+
+    imgArea.addEventListener('touchstart', e => {
+        fSX = e.touches[0].clientX; fDrag = true; fMoved = false; stopPhotoAuto();
+    }, { passive: true });
+    imgArea.addEventListener('touchmove', e => {
+        if (Math.abs(e.touches[0].clientX - fSX) > 8) fMoved = true;
+    }, { passive: true });
+    imgArea.addEventListener('touchend', e => {
+        if (!fDrag) return; fDrag = false;
+        handleSwipeEnd(e.changedTouches[0].clientX - fSX);
+    });
+
+    imgArea.addEventListener('mousedown', e => {
+        fSX = e.clientX; fDrag = true; fMoved = false; stopPhotoAuto(); e.preventDefault();
+    });
+    window.addEventListener('mousemove', e => {
+        if (fDrag && Math.abs(e.clientX - fSX) > 8) fMoved = true;
+    });
+    window.addEventListener('mouseup', e => {
+        if (!fDrag) return; fDrag = false; handleSwipeEnd(e.clientX - fSX);
+    });
+
+    // Swipe di area teks → pindah produk (infinite)
+    const modalBody = document.querySelector('.prod-modal-body');
+    let bSX = 0, bMoved = false;
+    modalBody.addEventListener('touchstart', e => { bSX = e.touches[0].clientX; bMoved = false; }, { passive: true });
+    modalBody.addEventListener('touchmove', e => { if (Math.abs(e.touches[0].clientX - bSX) > 8) bMoved = true; }, { passive: true });
+    modalBody.addEventListener('touchend', e => {
+        if (!bMoved) return;
+        const diff = e.changedTouches[0].clientX - bSX;
+        if (Math.abs(diff) > 50) loadProduct(curProd + (diff < 0 ? 1 : -1));
+    });
+
+    // ============================================================
+    // KEYBOARD
+    // ============================================================
+    document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeProdModal();
+        if (e.key === 'ArrowRight') {
+            const total = photoTrack.children.length;
+            if (curPhoto < total - 1) goPhoto(curPhoto + 1, true);
+            else loadProduct(curProd + 1);
+        }
+        if (e.key === 'ArrowLeft') {
+            if (curPhoto > 0) goPhoto(curPhoto - 1, true);
+            else loadProduct(curProd - 1);
+        }
+    });
+
+    // ============================================================
+    // TUTUP MODAL
+    // ============================================================
+    function closeProdModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        stopPhotoAuto();
+    }
+    document.getElementById('btnClose').addEventListener('click', closeProdModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeProdModal(); });
+    </script>
+</body>
+</html>

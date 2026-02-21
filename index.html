@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>HA BIBI SNACK CORNER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="image/Logo Habibi.png" alt="Logo HA BIBI SNACK CORNER" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">🛍️ Menu</a>
+                <a href="profile.html" class="nav-link">👤 Profil</a>
+            </div>
+            <div class="header-actions">
+                <button class="btn-theme" onclick="toggleTheme()" title="Ganti Tema">
+                    <span id="themeIcon">☀️</span>
+                </button>
+                <button class="btn-cart" onclick="toggleCart()">
+                    🛒 <span class="cart-text">Keranjang</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== NOTIFIKASI DARI PROFILE ===== -->
+    <div id="pesanNotif" class="pesan-notif" style="display:none">
+        <span class="pesan-notif-icon">👋</span>
+        <span class="pesan-notif-text">Silakan pilih menu terlebih dahulu, lalu tambahkan ke keranjang untuk melanjutkan pesanan!</span>
+        <button class="pesan-notif-close" onclick="tutupNotif()">×</button>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <img src="image/Logo Habibi.png" alt="Logo HA BIBI SNACK CORNER" class="hero-logo">
+            <h1 class="hero-title">HA BIBI SNACK CORNER</h1>
+            <p class="hero-sub">Toko Sembako & Angkringan · Di Jamin Nagihh best 🔥</p>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path class="wave-path" d="M0,50 C400,90 1040,10 1440,50 L1440,80 L0,80 Z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== SECTION BANNER ===== -->
+    <section class="banner-section">
+        <div class="banner-wrapper">
+            <img src="image/Banner.png" alt="Banner HA BIBI SNACK CORNER" class="banner-img">
+        </div>
+    </section>
+
+    <!-- ===== MENU PILIHAN ===== -->
+    <div class="container" id="menuSection">
+        <div class="section-title">Menu <span>Pilihan</span> 🔥</div>
+        <div class="products">
+
+            <div class="product-card" data-stock="true">
+                <img src="image/Cireng.png" alt="Cireng" class="product-image">
+                <span class="stock-badge in-stock">✅ Stok Tersedia</span>
+                <div class="product-info">
+                    <div class="product-name">Cireng</div>
+                    <div class="product-desc">Cireng enak banget loh</div>
+                    <div class="product-price">Rp 1.000 <span class="product-unit">/ 1 pcs</span></div>
+                    <div class="card-action">
+                        <div class="qty-control">
+                            <button onclick="changeCardQty(this, -1)">−</button>
+                            <span class="qty-value">1</span>
+                            <button onclick="changeCardQty(this, 1)">+</button>
+                        </div>
+                        <button class="btn-order" onclick="addToCart('Cireng', 1000, '1 pcs', this)">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-stock="true">
+                <img src="image/Jihu.png" alt="Jihu" class="product-image">
+                <span class="stock-badge in-stock">✅ Stok Tersedia</span>
+                <div class="product-info">
+                    <div class="product-name">Jihu</div>
+                    <div class="product-desc">Jihu enak banget loh harga murah meriah</div>
+                    <div class="product-price">Rp 1.000 <span class="product-unit">/ 1 pcs</span></div>
+                    <div class="card-action">
+                        <div class="qty-control">
+                            <button onclick="changeCardQty(this, -1)">−</button>
+                            <span class="qty-value">1</span>
+                            <button onclick="changeCardQty(this, 1)">+</button>
+                        </div>
+                        <button class="btn-order" onclick="addToCart('Jihu', 1000, '1 pcs', this)">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-stock="true">
+                <img src="image/Pentol Kecil.png" alt="Pentol Bakso Kecil" class="product-image">
+                <span class="stock-badge in-stock">✅ Stok Tersedia</span>
+                <div class="product-info">
+                    <div class="product-name">Pentol Bakso Kecil</div>
+                    <div class="product-desc">Pentol bakso kecil enak banget loh</div>
+                    <div class="product-price">Rp 1.000 <span class="product-unit">/ 5 biji</span></div>
+                    <div class="card-action">
+                        <div class="qty-control">
+                            <button onclick="changeCardQty(this, -1)">−</button>
+                            <span class="qty-value">1</span>
+                            <button onclick="changeCardQty(this, 1)">+</button>
+                        </div>
+                        <button class="btn-order" onclick="addToCart('Pentol Bakso Kecil', 1000, '5 biji', this)">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-stock="true">
+                <img src="image/Bakso.png" alt="Bakso" class="product-image">
+                <span class="stock-badge in-stock">✅ Stok Tersedia</span>
+                <div class="product-info">
+                    <div class="product-name">Bakso</div>
+                    <div class="product-desc">Bakso segar enak banget loh</div>
+                    <div class="product-price">Rp 5.000 <span class="product-unit">/ 1 porsi</span></div>
+                    <div class="card-action">
+                        <div class="qty-control">
+                            <button onclick="changeCardQty(this, -1)">−</button>
+                            <span class="qty-value">1</span>
+                            <button onclick="changeCardQty(this, 1)">+</button>
+                        </div>
+                        <button class="btn-order" onclick="addToCart('Bakso', 5000, '1 porsi', this)">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-stock="true">
+                <img src="image/Pentol Tahu Daging.png" alt="Pentol Tahu Daging" class="product-image">
+                <span class="stock-badge in-stock">✅ Stok Tersedia</span>
+                <div class="product-info">
+                    <div class="product-name">Pentol Tahu Daging</div>
+                    <div class="product-desc">Pentol tahu daging enak banget loh</div>
+                    <div class="product-price">Rp 1.000 <span class="product-unit">/ 1 pcs</span></div>
+                    <div class="card-action">
+                        <div class="qty-control">
+                            <button onclick="changeCardQty(this, -1)">−</button>
+                            <span class="qty-value">1</span>
+                            <button onclick="changeCardQty(this, 1)">+</button>
+                        </div>
+                        <button class="btn-order" onclick="addToCart('Pentol Tahu Daging', 1000, '1 pcs', this)">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-stock="true">
+                <img src="image/Tahu Walek.png" alt="Tahu Walek" class="product-image">
+                <span class="stock-badge in-stock">✅ Stok Tersedia</span>
+                <div class="product-info">
+                    <div class="product-name">Tahu Walek</div>
+                    <div class="product-desc">Tahu walek enak banget loh</div>
+                    <div class="product-price">Rp 2.000 <span class="product-unit">/ 3 biji</span></div>
+                    <div class="card-action">
+                        <div class="qty-control">
+                            <button onclick="changeCardQty(this, -1)">−</button>
+                            <span class="qty-value">1</span>
+                            <button onclick="changeCardQty(this, 1)">+</button>
+                        </div>
+                        <button class="btn-order" onclick="addToCart('Tahu Walek', 2000, '3 biji', this)">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="image/Logo Habibi.png" alt="Logo" class="footer-logo-img">
+            <span>HA BIBI SNACK CORNER</span>
+        </div>
+        <p class="footer-addr">📍 Sumber Pinang, Mlandingan, Situbondo, Jawa Timur</p>
+        <p class="footer-copy">© 2026 HA BIBI SNACK CORNER · Ibu Siti · All rights reserved</p>
+    </footer>
+
+    <!-- ===== PANEL KERANJANG ===== -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h2>🛒 Keranjang Belanja</h2>
+            <button class="close-btn" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Keranjang masih kosong</p>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none">
+            <div class="cart-total">Subtotal: <strong id="cartTotal">Rp 0</strong></div>
+
+            <div class="form-group">
+                <label>Metode Pengiriman</label>
+                <div class="delivery-options">
+                    <label class="delivery-opt">
+                        <input type="radio" name="delivery" value="ambil" checked onchange="toggleDelivery(this)">
+                        🏪 Ambil Sendiri
+                    </label>
+                    <label class="delivery-opt">
+                        <input type="radio" name="delivery" value="antar" onchange="toggleDelivery(this)">
+                        🛵 Antar ke Rumah <small>(+Rp 500)</small>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" id="addressGroup" style="display:none">
+                <label>📍 Lokasi Kamu (Google Maps)</label>
+                <button class="btn-maps" onclick="getLocation()">📌 Dapatkan Lokasi Saya</button>
+                <div id="locationStatus" class="location-status"></div>
+                <input type="text" id="mapsLink" placeholder="Atau paste link Google Maps kamu" style="margin-top:8px">
+                <small class="location-note">⚠️ Pengiriman hanya dalam radius 1 km dari toko</small>
+            </div>
+
+            <div id="ongkirBox" style="display:none" class="ongkir-info">
+                🛵 Ongkir: <strong>Rp 500</strong>
+            </div>
+            <div class="grand-total-box">
+                Total Bayar: <strong id="grandTotal">Rp 0</strong>
+            </div>
+
+            <div class="form-group">
+                <label>Nama Pemesan *</label>
+                <input type="text" id="customerName" placeholder="Masukkan nama kamu">
+            </div>
+
+            <div class="form-group">
+                <label>Metode Pembayaran</label>
+                <div class="delivery-options">
+                    <label class="delivery-opt">
+                        <input type="radio" name="payment" value="COD" checked>
+                        💵 COD (Bayar di Tempat)
+                    </label>
+                    <label class="delivery-opt">
+                        <input type="radio" name="payment" value="QRIS">
+                        📱 QRIS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Catatan (Opsional)</label>
+                <textarea id="orderNotes" rows="2" placeholder="Contoh: jangan pedas, tambah saos, dll"></textarea>
+            </div>
+            <button class="btn-wa-order" onclick="sendToWhatsApp()">📲 Pesan via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL QRIS ===== -->
+    <div class="modal" id="qrisModal">
+        <div class="modal-content qris-modal-content">
+            <div class="modal-header">
+                <h2>📱 Pembayaran QRIS</h2>
+                <button class="close-btn" onclick="closeQrisAndReset()">×</button>
+            </div>
+            <p class="qris-info">Scan QR di bawah untuk melakukan pembayaran</p>
+            <img src="image/QRIS.jpeg" alt="QRIS" class="qris-img">
+            <p class="qris-amount">Total: <strong id="qrisAmount"></strong></p>
+            <p class="qris-note">Setelah bayar, pesananmu akan segera kami proses! 🎉</p>
+            <div class="qris-actions">
+                <a id="qrisDownloadBtn" class="qris-download" href="image/QRIS.jpeg" download>⬇️ Unduh QRIS</a>
+                <label class="qris-confirm">
+                    <input type="checkbox" id="qrisConfirmCheckbox">
+                    <span>Saya sudah melakukan pembayaran</span>
+                </label>
+            </div>
+            <button id="qrisContinueBtn" class="btn-wa-order" onclick="doSendWA()" disabled>📲 Lanjut Kirim Pesanan ke WA</button>
+        </div>
+    </div>
+
+    <!-- ===== OVERLAY ===== -->
+    <div class="overlay" id="overlay" onclick="closeAllPanel()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
